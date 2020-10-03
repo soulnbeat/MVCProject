@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.kopo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+//의존 라이브러리를 가져올 저장소 설정
+repositories {
+	mavenCentral()
+	//mavenCentral() : Maven 중앙 서버를 저장소로 지정한다. 서버의 기본 URL은 http://repo1.maven.org/maven2/이다.
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testCompile 'javax.servlet:javax.servlet-api:3.1.0'
+}
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+test {
+	useJUnitPlatform()
+}
