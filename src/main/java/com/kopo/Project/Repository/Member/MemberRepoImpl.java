@@ -34,4 +34,9 @@ public class MemberRepoImpl implements MemberRepo {
                 .getResultList();
         return result.stream().findAny();
     }
+
+    public Member findOne(String e_mail) {
+        Member member = em.createQuery("select m from Member m where m.e_mail = :e_mail", Member.class).getSingleResult();
+        return member;
+    }
 }

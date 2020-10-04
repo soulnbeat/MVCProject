@@ -1,14 +1,18 @@
 package com.kopo.Project.Controller;
 
+import com.kopo.Project.Domain.Member;
 import com.kopo.Project.Domain.Reservation;
+import com.kopo.Project.Service.MemberService;
 import com.kopo.Project.Service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
+@Controller
 public class ReservationController {
     private final ReservationService reservationService;
 
@@ -22,10 +26,12 @@ public class ReservationController {
         return "reservations/createReservationForm";
     }
 
-
     @PostMapping(value = "/reservations/new")
     public String create(ReservationForm form) {
         Reservation reservation = new Reservation();
+
+
+
         reservation.setId(form.getId());
         reservation.setReservation_code(form.getReservation_code());
         reservation.setMember_code(form.getMember_code());
@@ -33,10 +39,10 @@ public class ReservationController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/reservationAll")
+    @GetMapping(value = "/reservations/tmp")
     public String list(Model model) {
         List<Reservation> reservation = reservationService.findReservation();
-        model.addAttribute("reservation", reservation);
-        return "reservations/reservationAllList";
+        model.addAttribute("reservations", reservation);
+        return "reservations/reservation";
     }
 }

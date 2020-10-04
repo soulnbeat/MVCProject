@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p> 영화리스트 </p>
+    <br>
+    <tr th:each="movies : ${movies}">
+        <td th:text="${movies.date}"></td>
+        <hr>
+        <td th:text="${movies.startTime}"></td>
+        <hr>
+        <td th:text="${movies.runningTime}"></td>
+        <hr>
+        <td th:text="${movies.movieTitle}"></td>
+        <hr>
+        <td th:text="${movies.companyType}"></td>
+        <hr>
+        <td th:text="${movies.region}"></td>
+        <hr>
+        <td th:text="${movies.hall}"></td>
+        <hr>
+    </tr>
+</div>
+</body>
+
+</html>

@@ -28,15 +28,22 @@ public class MovieController {
     @PostMapping(value = "/movies/new")
     public String create(MovieForm form) {
         Movie movies = new Movie();
+        movies.setDate(form.getDate());
+        movies.setStartTime(form.getStartTime());
+        movies.setRunningTime(form.getRunningTime());
         movies.setMovieTitle(form.getMovieTitle());
+        movies.setCompanyType(form.getCompanyType());
+        movies.setRegion(form.getRegion());
+        movies.setHall(form.getHall());
         movieService.join(movies);
         return "redirect:/";
     }
 
-    @GetMapping(value = "/movies")
+    @GetMapping(value = "/movies/tmp")
     public String list(Model model) {
         List<Movie> movies = movieService.findMovies();
         model.addAttribute("movies", movies);
+//        System.out.println("Enter movies/tem ");
         return "movies/movieList";
     }
 }

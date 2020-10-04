@@ -46,4 +46,15 @@ public class MemberService {
             System.out.println("findMembers " + timeMs + "ms");
         }
     }
+
+    public Member findOneMember(String e_mail) {
+        long start = System.currentTimeMillis();
+        try {
+            return memberRepo.findOne(e_mail);
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("findOneMember " + timeMs + "ms");
+        }
+    }
 }

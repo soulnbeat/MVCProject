@@ -18,7 +18,7 @@ public class MovieForm {
     private String startTime;
     private int runningTime;
     private String movieTitle;
-    private int companyType;
+    private String companyType;
     private String region;
     private int hall;
 }

@@ -1,10 +1,20 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<div>
+    <tr th:each="reservation : ${reservations}">
+        <td th:text="${reservation.reservation_code}"></td>
+        <br>
+        <td th:text="${reservation.member_code}"></td>
+        <br>
+        <td th:text="${reservation.id}"></td>
+        <hr>
+    </tr>
+</div>
 </body>
 </html>
