@@ -28,17 +28,26 @@ public class MemberController {
     @PostMapping(value = "/members/new")
     public String create(MemberForm form) {
         Member member = new Member();
+        member.setMember_code(System.currentTimeMillis());
         member.setE_mail(form.getE_mail());
+        member.setPassword(form.getPassword());
         member.setPhone_number(form.getPhone_number());
         memberService.join(member);
         return "redirect:/";
     }
 
-    @GetMapping(value = "/members")
+    @GetMapping(value = "/members/tmp")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
-        return "members/memberList";
+        return "members/member";
     }
+
+//    @PostMapping(value = "/members/tmp")
+//    public String findMembers(Model model) {
+//        List<Member> members = memberService.findMembers();
+//        model.addAttribute("members", members);
+//        return "members/member";
+//    }
 
 }
