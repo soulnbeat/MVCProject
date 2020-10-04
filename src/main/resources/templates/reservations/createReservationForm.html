@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
 <body>
-Hello World!
+<div class="container">
+    <form action="/reservations/new" method="post">
+        <div class="form-group">
+            <label for="id">영화정보</label>
+            <input type="text" id="id" name="id">
+            <br>
+            <label for="reservation_code">자리코드</label>
+            <input type="text" id="reservation_code" name="reservation_code" placeholder="자리를 입력하세요">
+            <br>
+            <label for="member_code">회원번호</label>
+            <input type="text" id="member_code" name="member_code">
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div> <!-- /container -->
 </body>
 </html>
