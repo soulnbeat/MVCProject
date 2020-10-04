@@ -9,7 +9,13 @@
 <div>
     <tr th:each="member : ${members}">
         <td th:text="${member.member_code}"></td>
+        <br>
+        <td th:text="${member.e_mail}"></td>
+        <br>
         <td th:text="${member.password}"></td>
+        <br>
+        <td th:text="${member.phone_number}"></td>
+        <hr>
     </tr>
 </div>
 </body>
