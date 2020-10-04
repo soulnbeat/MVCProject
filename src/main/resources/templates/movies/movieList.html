@@ -10,19 +10,16 @@
     <p> 영화리스트 </p>
     <br>
     <tr th:each="movies : ${movies}">
-        <td th:text="${movies.date}"></td>
-        <hr>
-        <td th:text="${movies.startTime}"></td>
-        <hr>
-        <td th:text="${movies.runningTime}"></td>
-        <hr>
-        <td th:text="${movies.movieTitle}"></td>
-        <hr>
-        <td th:text="${movies.companyType}"></td>
-        <hr>
-        <td th:text="${movies.region}"></td>
-        <hr>
-        <td th:text="${movies.hall}"></td>
+        <form action="/reservations/new" method="post">
+            <button type="submit" id="id" name="id" th:value="${movies.id}"></button>
+            <td th:text="${movies.date}"></td>
+            <td th:text="${movies.start_time}"></td>
+            <td th:text="${movies.running_time}"></td>
+            <td th:text="${movies.movie_title}"></td>
+            <td th:text="${movies.company_type}"></td>
+            <td th:text="${movies.region}"></td>
+            <td th:text="${movies.hall}"></td>
+        </form>
         <hr>
     </tr>
 </div>

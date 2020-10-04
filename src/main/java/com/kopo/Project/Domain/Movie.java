@@ -19,10 +19,10 @@ public class Movie {
     private Long id;
 
     private String date;
-    private String startTime;
-    private int runningTime;
-    private String movieTitle;
-    private String companyType;
+    private String start_time;
+    private int running_time;
+    private String movie_title;
+    private String company_type;
     private String region;
     private int hall;
 }

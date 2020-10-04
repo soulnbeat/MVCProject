@@ -29,10 +29,10 @@ public class MovieController {
     public String create(MovieForm form) {
         Movie movies = new Movie();
         movies.setDate(form.getDate());
-        movies.setStartTime(form.getStartTime());
-        movies.setRunningTime(form.getRunningTime());
-        movies.setMovieTitle(form.getMovieTitle());
-        movies.setCompanyType(form.getCompanyType());
+        movies.setStart_time(form.getStart_time());
+        movies.setRunning_time(form.getRunning_time());
+        movies.setMovie_title(form.getMovie_title());
+        movies.setCompany_type(form.getCompany_type());
         movies.setRegion(form.getRegion());
         movies.setHall(form.getHall());
         movieService.join(movies);

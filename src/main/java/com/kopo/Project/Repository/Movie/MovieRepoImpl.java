@@ -24,8 +24,7 @@ public class MovieRepoImpl implements MovieRepo {
     }
 
     public List<Movie> findAll() {
-        return em.createQuery("select m from Movie as m", Movie.class)
-                .getResultList();
+        return em.createQuery("select m from Movie m", Movie.class).getResultList();
     }
 
     public Optional<Movie> findByMovieTitle(String movieTile) {
