@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class MovieController {
-    private final MovieService movieService;
+    private final MovgitieService movieService;
 
     @Autowired
     public MovieController(MovieService movieService) {
